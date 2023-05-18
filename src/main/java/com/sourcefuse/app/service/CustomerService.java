@@ -40,9 +40,9 @@ public class CustomerService
 
 	}
 
-	public void updateContact(ContactInfo contact)
+	public ContactInfo updateContact(ContactInfo contact)
 	{
-		contactRepo.save(contact);
+		return contactRepo.save(contact);
 
 	}
 

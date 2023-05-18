@@ -13,7 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,7 +29,7 @@ public class Order
 	@JoinTable(name = "order", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "order_id"))
 	private Set<Product> items;
 
-	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "order")
+	@ManyToOne(cascade = CascadeType.ALL, targetEntity = Order.class)
 	private Set<Customer> customers;
 
 	public Integer getId()

@@ -28,7 +28,7 @@ public class Product
 	private String name;
 
 	@Column(name = "quantity")
-	private String quantity;
+	private Integer quantity;
 
 	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "product")
 	private Set<Order> orders;
@@ -53,12 +53,12 @@ public class Product
 		this.name = name;
 	}
 
-	public String getQuantity()
+	public Integer getQuantity()
 	{
 		return quantity;
 	}
 
-	public void setQuantity(String quantity)
+	public void setQuantity(Integer quantity)
 	{
 		this.quantity = quantity;
 	}

@@ -23,33 +23,33 @@ public class CustomerController
 	@PostMapping(value = "/customer")
 	public Customer create(@RequestBody Customer customer)
 	{
-		custService.create(customer);
-		return customer;
+		return custService.create(customer);
 	}
 
 	@PatchMapping(value = "/customer")
 	public Customer update(@RequestBody Customer customer)
 	{
-		custService.update(customer);
-		return customer;
+		return custService.update(customer);
 	}
 
 	@PatchMapping(value = "/customer/contact")
 	public ContactInfo update(@RequestBody ContactInfo contact)
 	{
-		custService.updateContact(contact);
-		return contact;
+
+		return custService.updateContact(contact);
 	}
 
 	@DeleteMapping(value = "/customer")
-	public void delete(@RequestBody Customer customer)
+	public String delete(@RequestBody Customer customer)
 	{
 		custService.delete(customer);
+		return "OK";
 	}
 
 	@DeleteMapping(value = "/customer")
-	public void deleteById(@RequestParam Integer id)
+	public String deleteById(@RequestParam Integer id)
 	{
 		custService.delete(id);
+		return "OK";
 	}
 }

@@ -12,7 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -34,7 +34,7 @@ public class Customer
 	@Column(name = "contact_info")
 	private ContactInfo contactInfo;
 
-	@JoinTable(name = "order", joinColumns = @JoinColumn(name = "order_id"), inverseJoinColumns = @JoinColumn(name = "customer_id"))
+	@OneToMany(targetEntity = Order.class, mappedBy = "customer")
 	private Set<Order> orders;
 
 	public Integer getId()
